@@ -1,0 +1,114 @@
+root@ip-172-31-35-14:~# ls
+docker-demo  snap
+root@ip-172-31-35-14:~#
+root@ip-172-31-35-14:~# cd docker-demo/
+root@ip-172-31-35-14:~/docker-demo#
+root@ip-172-31-35-14:~/docker-demo# ls
+Dockerfile  card-website
+root@ip-172-31-35-14:~/docker-demo#
+root@ip-172-31-35-14:~/docker-demo# git clone https://github.com/amolshete/Docker-compose.git
+Cloning into 'Docker-compose'...
+remote: Enumerating objects: 24, done.
+remote: Counting objects: 100% (24/24), done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 24 (delta 7), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (24/24), 7.42 KiB | 7.42 MiB/s, done.
+Resolving deltas: 100% (7/7), done.
+root@ip-172-31-35-14:~/docker-demo#
+root@ip-172-31-35-14:~/docker-demo#
+root@ip-172-31-35-14:~/docker-demo# ls
+Docker-compose  Dockerfile  card-website
+root@ip-172-31-35-14:~/docker-demo#
+root@ip-172-31-35-14:~/docker-demo# cd Docker-compose/
+root@ip-172-31-35-14:~/docker-demo/Docker-compose#
+root@ip-172-31-35-14:~/docker-demo/Docker-compose# ls
+Dockerfile  README.md  app.py  docker-compose-example.yml  docker-compose.yml  requirements.txt
+root@ip-172-31-35-14:~/docker-demo/Docker-compose#
+root@ip-172-31-35-14:~/docker-demo/Docker-compose#
+root@ip-172-31-35-14:~/docker-demo/Docker-compose# cat docker-compose.yml
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+  redis:
+    image: "redis:alpine"
+root@ip-172-31-35-14:~/docker-demo/Docker-compose#
+root@ip-172-31-35-14:~/docker-demo/Docker-compose# docker compose up -d
+[+] Running 9/9
+ ✔ redis Pulled                                                                                                                                                                                              3.3s
+   ✔ 43c4264eed91 Pull complete                                                                                                                                                                              0.7s
+   ✔ cc1711cdd203 Pull complete                                                                                                                                                                              0.7s
+   ✔ b3db14da7d7e Pull complete                                                                                                                                                                              0.9s
+   ✔ 23bd8946cf04 Pull complete                                                                                                                                                                              1.0s
+   ✔ a6faf94f7383 Pull complete                                                                                                                                                                              1.3s
+   ✔ c5a6f4d557ce Pull complete                                                                                                                                                                              1.4s
+   ✔ 4f4fb700ef54 Pull complete                                                                                                                                                                              1.4s
+   ✔ 1b67933c677e Pull complete                                                                                                                                                                              1.4s
+[+] Building 15.6s (16/16) FINISHED                                                                                                                                                                docker:default
+ => [web internal] load build definition from Dockerfile                                                                                                                                                     0.0s
+ => => transferring dockerfile: 320B                                                                                                                                                                         0.0s
+ => [web] resolve image config for docker-image://docker.io/docker/dockerfile:1                                                                                                                              1.4s
+ => [web auth] docker/dockerfile:pull token for registry-1.docker.io                                                                                                                                         0.0s
+ => [web] docker-image://docker.io/docker/dockerfile:1@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5                                                                               0.7s
+ => => resolve docker.io/docker/dockerfile:1@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5                                                                                         0.0s
+ => => sha256:e3171ba32039ebf6fef09a7cbe2578e43a0ca25e087cf67b49bfad5fe728db1e 850B / 850B                                                                                                                   0.0s
+ => => sha256:a1637aae1ee9435ad8372f51bdf6f05ed49e4a3beeba0f442980a4c23a418d74 1.26kB / 1.26kB                                                                                                               0.0s
+ => => sha256:1e45ed8b8be3fcf5baec105c530196be8d0b853893e209e4adf6c0e925079ff0 12.49MB / 12.49MB                                                                                                             0.4s
+ => => sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5 8.40kB / 8.40kB                                                                                                               0.0s
+ => => extracting sha256:1e45ed8b8be3fcf5baec105c530196be8d0b853893e209e4adf6c0e925079ff0                                                                                                                    0.2s
+ => [web internal] load metadata for docker.io/library/python:3.7-alpine                                                                                                                                     2.0s
+ => [web auth] library/python:pull token for registry-1.docker.io                                                                                                                                            0.0s
+ => [web internal] load .dockerignore                                                                                                                                                                        0.0s
+ => => transferring context: 2B                                                                                                                                                                              0.0s
+ => [web 1/6] FROM docker.io/library/python:3.7-alpine@sha256:f3d31c8677d03f0b3c724446077f229a6ce9d3ac430f5c08cd7dff00292048c3                                                                               2.1s
+ => => resolve docker.io/library/python:3.7-alpine@sha256:f3d31c8677d03f0b3c724446077f229a6ce9d3ac430f5c08cd7dff00292048c3                                                                                   0.0s
+ => => sha256:9875af95546db78168a6761b7fa205ed1cd0c153cd89356c1512e551c12b2d5c 622.29kB / 622.29kB                                                                                                           0.7s
+ => => sha256:4819c95424fc4a94767c9329b02238ebcce0bc682384cb671379bc1fb8a12b55 10.94MB / 10.94MB                                                                                                             0.6s
+ => => sha256:f3d31c8677d03f0b3c724446077f229a6ce9d3ac430f5c08cd7dff00292048c3 1.65kB / 1.65kB                                                                                                               0.0s
+ => => sha256:e6da3ee9bb64dd12b98fa609487f112fe1e365522e6e8345309db15c22a80a51 1.37kB / 1.37kB                                                                                                               0.0s
+ => => sha256:1bac8ae77e4af0b868b62a75115616a20e025e0451eeed05d94a4cfc4523e58a 6.87kB / 6.87kB                                                                                                               0.0s
+ => => sha256:96526aa774ef0126ad0fe9e9a95764c5fc37f409ab9e97021e7b4775d82bf6fa 3.40MB / 3.40MB                                                                                                               0.2s
+ => => extracting sha256:96526aa774ef0126ad0fe9e9a95764c5fc37f409ab9e97021e7b4775d82bf6fa                                                                                                                    0.1s
+ => => sha256:148762f75a1f92cc9857e9c488bf95d5aac61e9905ec47a7408025b2dd5c3b7a 240B / 240B                                                                                                                   0.5s
+ => => sha256:ea1518237b3753b3fe40ee773d77651704178d9baa72ae5012e13a992cfa6c63 2.85MB / 2.85MB                                                                                                               0.7s
+ => => extracting sha256:9875af95546db78168a6761b7fa205ed1cd0c153cd89356c1512e551c12b2d5c                                                                                                                    0.2s
+ => => extracting sha256:4819c95424fc4a94767c9329b02238ebcce0bc682384cb671379bc1fb8a12b55                                                                                                                    0.5s
+ => => extracting sha256:148762f75a1f92cc9857e9c488bf95d5aac61e9905ec47a7408025b2dd5c3b7a                                                                                                                    0.0s
+ => => extracting sha256:ea1518237b3753b3fe40ee773d77651704178d9baa72ae5012e13a992cfa6c63                                                                                                                    0.2s
+ => [web internal] load build context                                                                                                                                                                        0.0s
+ => => transferring context: 43.80kB                                                                                                                                                                         0.0s
+ => [web 2/6] WORKDIR /code                                                                                                                                                                                  0.2s
+ => [web 3/6] RUN apk add --no-cache gcc musl-dev linux-headers                                                                                                                                              2.4s
+ => [web 4/6] COPY requirements.txt requirements.txt                                                                                                                                                         0.0s
+ => [web 5/6] RUN pip install -r requirements.txt                                                                                                                                                            4.7s
+ => [web 6/6] COPY . .                                                                                                                                                                                       0.1s
+ => [web] exporting to image                                                                                                                                                                                 1.6s
+ => => exporting layers                                                                                                                                                                                      1.6s
+ => => writing image sha256:6a1620e193fc6b62214a501b8fd573384484c4276c83576bd38af0df3f6725fd                                                                                                                 0.0s
+ => => naming to docker.io/library/docker-compose-web                                                                                                                                                        0.0s
+ => [web] resolving provenance for metadata file                                                                                                                                                             0.0s
+[+] Running 3/3
+ ✔ Network docker-compose_default    Created                                                                                                                                                                 0.1s
+ ✔ Container docker-compose-redis-1  Started                                                                                                                                                                 0.5s
+ ✔ Container docker-compose-web-1    Started                                                                                                                                                                 0.5s
+root@ip-172-31-35-14:~/docker-demo/Docker-compose#
+root@ip-172-31-35-14:~/docker-demo/Docker-compose#
+root@ip-172-31-35-14:~/docker-demo/Docker-compose# docker ps
+CONTAINER ID   IMAGE                           COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+bc080b736c74   docker-compose-web              "flask run"              9 seconds ago    Up 8 seconds    0.0.0.0:8000->5000/tcp, [::]:8000->5000/tcp   docker-compose-web-1
+d14bb0f9e5cd   redis:alpine                    "docker-entrypoint.s…"   9 seconds ago    Up 8 seconds    6379/tcp                                      docker-compose-redis-1
+f094b1ffe08c   mkothapally/card-website:v1.1   "/docker-entrypoint.…"   12 minutes ago   Up 12 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp             loving_chatelet
+root@ip-172-31-35-14:~/docker-demo/Docker-compose# cat docker-compose
+cat: docker-compose: No such file or directory
+root@ip-172-31-35-14:~/docker-demo/Docker-compose# cat docker-compose.yml
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+  redis:
+    image: "redis:alpine"
+root@ip-172-31-35-14:~/docker-demo/Docker-compose#
+root@ip-172-31-35-14:~/docker-demo/Docker-compose#
+root@ip-172-31-35-14:~/docker-demo/Docker-compose#
